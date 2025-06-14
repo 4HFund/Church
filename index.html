@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Foundery | Moving People Toward God & Creativity</title>
+
+  <!-- === Embedded CSS === -->
+  <style>
+    :root {
+      --orange: #FF6B30;
+      --charcoal: #1B1B1B;
+      --gray: #343434;
+      --offwhite: #F6F4F1;
+      --radius: 6px;
+      --transition: 0.3s;
+      --max-width: 1200px;
+      --font-head: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    body {
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background: var(--charcoal);
+      color: var(--offwhite);
+    }
+    h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700 }
+    a { color: inherit; text-decoration: none }
+    section { padding: 4rem 1rem }
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn:hover { transform: translateY(-2px) }
+    .btn.outline {
+      background: transparent;
+      border: 2px solid var(--orange);
+    }
+
+    #main-nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      z-index: 999;
+      transition: var(--transition);
+    }
+    #main-nav.scrolled {
+      background: rgba(27, 27, 27, 0.95);
+      backdrop-filter: saturate(180%) blur(6px);
+    }
+    #main-nav nav a { margin-left: 1rem; font-weight: 600 }
+    #main-nav .btn { margin-left: 1.5rem }
+    .logo img { height: 42px }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 90%;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.2;
+    }
+    .glow {
+      color: var(--orange);
+      text-shadow: 0 0 12px var(--orange);
+    }
+    .cta-wrap { margin-top: 1.25rem }
+    .cta-wrap .btn { margin: 0 0.5rem }
+
+    .statement {
+      background: var(--gray);
+      text-align: center;
+    }
+    .statement h2 {
+      font-size: 2rem;
+    }
+
+    .visit {
+      background: var(--charcoal);
+    }
+    .visit-grid {
+      display: grid;
+      gap: 2rem;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+    @media (min-width: 700px) {
+      .visit-grid { grid-template-columns: repeat(3, 1fr) }
+    }
+    .visit .map iframe {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      border-radius: var(--radius);
+    }
+
+    .sermons {
+      background: var(--gray);
+      text-align: center;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-top: 56.25%;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .event-banner {
+      background: var(--gray);
+      text-align: center;
+    }
+    .event-banner h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .ministries {
+      text-align: center;
+    }
+    .card-grid {
+      display: grid;
+      gap: 1.5rem;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+    @media(min-width: 600px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr) }
+    }
+    @media(min-width: 900px) {
+      .card-grid { grid-template-columns: repeat(4, 1fr) }
+    }
+    .card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .card:hover { transform: translateY(-4px) }
+    .card img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h3 { padding: 1rem }
+
+    .generosity {
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    footer {
+      background: var(--gray);
+      padding: 2rem 1rem;
+    }
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+    @media(min-width: 600px) {
+      .footer-grid { grid-template-columns: repeat(3, 1fr) }
+    }
+    .footer-logo { height: 48px; margin-bottom: 1rem }
+    footer h4 { margin-bottom: 0.5rem }
+    footer a:hover { text-decoration: underline }
+    .copyright {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- === Navigation === -->
+<header id="main-nav">
+  <a href="#top" class="logo"><img src="assets/foundery-logo.svg" alt="The Foundery" /></a>
+  <nav>
+    <a href="#visit">Plan a Visit</a>
+    <a href="#sermons">Messages</a>
+    <a href="https://thefoundery.churchcenter.com/giving" target="_blank" class="btn">Give</a>
+  </nav>
+</header>
+
+<!-- === Hero Section === -->
+<section id="top" class="hero">
+  <video class="bg-video" autoplay loop muted playsinline poster="assets/hero-poster.jpg">
+    <source src="assets/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>Faith isn’t found.<br><span class="glow">It’s forged.</span></h1>
+    <div class="cta-wrap">
+      <a href="#visit" class="btn">Plan a Visit</a>
+      <a href="https://thefoundery.churchcenter.com/giving" target="_blank" class="btn outline">Give</a>
+    </div>
+  </div>
+</section>
+
+<!-- === Mission Statement === -->
+<section class="statement">
+  <h2>Moving People Toward God<br>Through Creativity & Community</h2>
+</section>
+
+<!-- === Plan Your Visit === -->
+<section id="visit" class="visit">
+  <h2>Plan Your Visit</h2>
+  <div class="visit-grid">
+    <div><h3>Service Times</h3><p>Sundays • 9:30 AM & 11:15 AM</p></div>
+    <div><h3>Campus</h3><p>1000 Main St, Wellsburg WV</p></div>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- === Sermons === -->
+<section id="sermons" class="sermons">
+  <h2>Latest Message</h2>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed?listType=playlist&list=YOUR_PLAYLIST_ID" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- === Event Banner === -->
+<section class="event-banner">
+  <h2>Good Company Bonfire – This Wednesday</h2>
+  <a href="https://thefoundery.churchcenter.com/events" target="_blank" class="btn">Details & RSVP</a>
+</section>
+
+<!-- === Ministries === -->
+<section class="ministries">
+  <h2>Ministries & Gatherings</h2>
+  <div class="card-grid">
+    <article class="card"><img src="assets/kids.jpg" alt="Foundery Kids" /><h3>Foundery Kids</h3></article>
+    <article class="card"><img src="assets/youth.jpg" alt="Foundery Youth" /><h3>Foundery Youth</h3></article>
+    <article class="card"><img src="assets/creative.jpg" alt="Creative Collective" /><h3>Creative Collective</h3></article>
+    <article class="card"><img src="assets/good-company.jpg" alt="Good Company" /><h3>Good Company</h3></article>
+  </div>
+</section>
+
+<!-- === Generosity === -->
+<section class="generosity">
+  <h2>Generosity Changes Lives</h2>
+  <p>Every dollar fuels outreach, creativity, and community impact.</p>
+  <a href="https://thefoundery.churchcenter.com/giving" target="_blank" class="btn">Give Online</a>
+</section>
+
+<!-- === Footer === -->
+<footer>
+  <div class="footer-grid">
+    <div><img src="assets/foundery-logo.svg" alt="The Foundery" class="footer-logo"></div>
+    <div><h4>Contact</h4><p>info@thefoundery.org<br>(304) 555-0123</p></div>
+    <div>
+      <h4>Follow</h4>
+      <a href="https://tiktok.com/@fallingfeathersstudio" target="_blank">TikTok</a><br>
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span id="year"></span> The Foundery. All rights reserved.</p>
+</footer>
+
+<!-- === JS Inline === -->
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href'))
+              .scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
