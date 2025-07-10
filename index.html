@@ -261,9 +261,9 @@ nav a:hover::after {
 
 .highlights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -275,6 +275,10 @@ nav a:hover::after {
   box-shadow: 0 5px 25px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
 }
 
 .highlight:hover {
@@ -299,6 +303,29 @@ nav a:hover::after {
   color: #666;
   font-size: 1rem;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.btn-small {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+  background: #ff7034;
+  color: white;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 25px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255, 112, 52, 0.3);
+  margin-top: auto;
+}
+
+.btn-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 112, 52, 0.4);
+  background: #ff5722;
 }
 
 /* Ministries Section */
@@ -573,19 +600,27 @@ footer {
   <section class="highlights">
     <div class="highlights-grid">
       <div class="highlight">
-        <span class="highlight-icon">🔔</span>
+        <span class="highlight-icon">🛎</span>
         <h3>Sunday Services</h3>
         <p><strong>10:30 AM</strong><br>Live + In-Person<br>📍 Wellsburg, WV</p>
       </div>
       <div class="highlight">
-        <span class="highlight-icon">🎨</span>
-        <h3>Creative Collective</h3>
-        <p>Stories, music, & moments that point to Jesus through authentic creativity and expression</p>
+        <span class="highlight-icon">🧠</span>
+        <h3>Grow & Belong</h3>
+        <p>Explore our Life Groups and Bible studies for every age.<br>Sundays at 9:15 AM + Midweek options</p>
+        <a href="#" class="btn btn-small">Find a Group</a>
       </div>
       <div class="highlight">
-        <span class="highlight-icon">📱</span>
-        <h3>Church Center</h3>
-        <p>Groups. Events. Giving. All in one place for seamless community connection</p>
+        <span class="highlight-icon">🛍</span>
+        <h3>Kenny's Kloset</h3>
+        <p>Clothing ministry serving our community with dignity.</p>
+        <a href="#" class="btn btn-small">Learn More</a>
+      </div>
+      <div class="highlight">
+        <span class="highlight-icon">🧒</span>
+        <h3>Adventure Kids</h3>
+        <p>Where faith meets fun for Pre-K through 5th grade.<br>Safe, creative, and joy-filled environments.</p>
+        <a href="#" class="btn btn-small">Plan Your Child's Visit</a>
       </div>
     </div>
   </section>
