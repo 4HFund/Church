@@ -10,7 +10,6 @@
       font-family: 'Segoe UI', sans-serif;
       background: #f9f9f9;
       color: #222;
-      line-height: 1.6;
     }
 
     header {
@@ -19,21 +18,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 2rem;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
     .logo-container img {
-      height: 40px;
-      width: auto;
-      margin-right: 12px;
+      height: 70px;
     }
 
     nav ul {
@@ -48,11 +40,6 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ff7034;
     }
 
     .hero {
@@ -63,31 +50,26 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .btn {
+    .hero-buttons .btn {
+      margin: 0.5rem;
       padding: 0.75rem 1.5rem;
       background: white;
       color: #1a2a33;
       border: none;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s;
+      border-radius: 5px;
+      display: inline-block;
     }
 
-    .btn:hover {
-      background: #f0f0f0;
+    .watch-latest {
+      text-align: center;
+      padding: 2rem;
+      background: white;
     }
 
     .welcome {
@@ -99,48 +81,37 @@
     .video-section {
       display: flex;
       justify-content: center;
-      align-items: center;
       padding: 2rem;
-      background: #f2f2f2;
-    }
-
-    .video-section iframe {
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 8px;
     }
 
     .highlights {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
+      background: #f2f2f2;
+      padding: 2rem 1rem;
       flex-wrap: wrap;
-      background: #fff;
-      padding: 2rem;
-      gap: 2rem;
+      gap: 1rem;
     }
 
     .highlight {
-      max-width: 220px;
+      max-width: 200px;
       text-align: center;
-      font-size: 1rem;
     }
 
     .ministries {
       padding: 3rem 2rem;
-      background: #fff;
+      background: white;
     }
 
     .ministries h2 {
       text-align: center;
-      margin-bottom: 2rem;
     }
 
     .ministry-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     .card {
@@ -150,7 +121,6 @@
       border-radius: 8px;
       text-align: center;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .give {
@@ -160,22 +130,29 @@
       text-align: center;
     }
 
-    .give h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .give .btn {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #ff7034;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
     }
 
     footer {
       background: #333;
       color: white;
-      text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
 
     .socials a {
       color: #ff7034;
-      text-decoration: none;
       margin: 0 0.5rem;
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -183,14 +160,21 @@
       nav ul {
         flex-direction: column;
         gap: 0.5rem;
-        margin-top: 1rem;
-        align-items: flex-end;
       }
+
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-      .video-section iframe {
-        height: 220px;
+
+      .highlights {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
       }
     }
   </style>
@@ -200,8 +184,7 @@
   <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Foundery Logo" />
-      <h2>The Foundery</h2>
+      <img src="logo.png" alt="The Foundery Logo" />
     </div>
     <nav>
       <ul>
@@ -226,16 +209,22 @@
     </div>
   </section>
 
+  <!-- Watch Latest Sermon -->
+  <section class="watch-latest">
+    <h2>🎥 Watch the Latest Sermon</h2>
+    <a href="https://www.youtube.com/watch?v=je-zJwwfS3A" class="btn" target="_blank">Watch Now</a>
+  </section>
+
+  <!-- Centered YouTube Video -->
+  <div class="video-section">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/je-zJwwfS3A?start=1863" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
   <!-- Welcome -->
   <section class="welcome">
     <h2>Welcome to The Foundery</h2>
     <p>A church where faith, creativity, and community collide.<br>No perfect people. Just real stories and real hope.</p>
     <a href="#" class="btn">Get to Know Us</a>
-  </section>
-
-  <!-- Featured Video -->
-  <section class="video-section">
-    <iframe src="https://www.youtube.com/embed/je-zJwwfS3A?start=1863" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
 
   <!-- Highlights -->
@@ -256,14 +245,15 @@
 
   <!-- Ministries -->
   <section class="ministries">
-    <h2>Ministries</h2>
+    <h2>Life Groups @ 9:15am</h2>
     <div class="ministry-grid">
-      <div class="card">🧒 Foundery Kids</div>
-      <div class="card">🎒 Student Ministry</div>
-      <div class="card">🤝 Life Groups</div>
-      <div class="card">🛍 Kenny’s Kloset</div>
-      <div class="card">🎤 Worship</div>
-      <div class="card">🎨 Creative Collective</div>
+      <div class="card">Pre-K – Kindergarten – Pastor Amy Openbrier</div>
+      <div class="card">1st–5th Grade – Jim & JoEllen Haizlett</div>
+      <div class="card">6th–12th Grade – Stacy Westfall</div>
+      <div class="card">FamilyLife: Love Like You Mean It – Ryan & Brooke Smith</div>
+      <div class="card">Harmony of the Gospels – Matt Thoma</div>
+      <div class="card">Biblical Worldview – Will & Lynnette Haizlett</div>
+      <div class="card">Wesleyan Class – Pastor Dave Keister</div>
     </div>
   </section>
 
@@ -276,13 +266,29 @@
 
   <!-- Footer -->
   <footer>
-    <p>The Foundery – Sundays Are Just the Start</p>
+    <div>
+      <h4>Visit Us</h4>
+      <p>1340 Washington Pike<br>Wellsburg, WV 26070</p>
+    </div>
+    <div>
+      <h4>Service Times</h4>
+      <p>Life Groups – Sunday 9:15 AM<br>Service – Sunday 10:30 AM<br>Family Ministry Night – Wed 6:30 PM</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: office@thefoundery.church<br>Phone: (304) 737-0186</p>
+    </div>
     <div class="socials">
-      <a href="#">YouTube</a> |
-      <a href="#">TikTok</a> |
-      <a href="#">Instagram</a>
+      <h4>Follow Us</h4>
+      <a href="https://facebook.com/thefoundery.church" target="_blank">Facebook</a>
+      <a href="https://instagram.com/thefoundery.church" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@thefoundery.church" target="_blank">TikTok</a>
     </div>
   </footer>
+
+  <script>
+    console.log("The Foundery homepage loaded.");
+  </script>
 
 </body>
 </html>
