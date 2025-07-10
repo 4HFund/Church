@@ -10,6 +10,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: #f9f9f9;
       color: #222;
+      line-height: 1.6;
     }
 
     header {
@@ -18,7 +19,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 2rem;
+      padding: 0.75rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -30,14 +31,15 @@
     }
 
     .logo-container img {
-      height: 50px;
-      margin-right: 10px;
+      height: 40px;
+      width: auto;
+      margin-right: 12px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.25rem;
       margin: 0;
       padding: 0;
     }
@@ -46,6 +48,11 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff7034;
     }
 
     .hero {
@@ -56,20 +63,31 @@
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-buttons .btn {
-      margin: 0.5rem;
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
       padding: 0.75rem 1.5rem;
       background: white;
       color: #1a2a33;
       border: none;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
-      display: inline-block;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #f0f0f0;
     }
 
     .welcome {
@@ -78,34 +96,51 @@
       text-align: center;
     }
 
+    .video-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background: #f2f2f2;
+    }
+
+    .video-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 8px;
+    }
+
     .highlights {
       display: flex;
-      justify-content: space-around;
-      background: #f2f2f2;
-      padding: 2rem 1rem;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      background: #fff;
+      padding: 2rem;
+      gap: 2rem;
     }
 
     .highlight {
-      max-width: 200px;
+      max-width: 220px;
       text-align: center;
+      font-size: 1rem;
     }
 
     .ministries {
       padding: 3rem 2rem;
-      background: white;
+      background: #fff;
     }
 
     .ministries h2 {
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     .ministry-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
     }
 
     .card {
@@ -115,6 +150,7 @@
       border-radius: 8px;
       text-align: center;
       font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .give {
@@ -126,17 +162,7 @@
 
     .give h2 {
       font-size: 2rem;
-    }
-
-    .give .btn {
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: #ff7034;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      display: inline-block;
+      margin-bottom: 1rem;
     }
 
     footer {
@@ -149,7 +175,8 @@
     .socials a {
       color: #ff7034;
       text-decoration: none;
-      margin: 0 0.25rem;
+      margin: 0 0.5rem;
+      font-weight: bold;
     }
 
     @media (max-width: 768px) {
@@ -157,27 +184,24 @@
         flex-direction: column;
         gap: 0.5rem;
         margin-top: 1rem;
+        align-items: flex-end;
       }
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
-      .hero-buttons .btn {
-        display: block;
-        margin: 0.5rem auto;
-      }
-      .highlights {
-        flex-direction: column;
-        align-items: center;
+      .video-section iframe {
+        height: 220px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Header -->
   <header>
     <div class="logo-container">
       <img src="logo.png" alt="Foundery Logo" />
+      <h2>The Foundery</h2>
     </div>
     <nav>
       <ul>
@@ -209,7 +233,10 @@
     <a href="#" class="btn">Get to Know Us</a>
   </section>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/je-zJwwfS3A?si=3roEkDT6p-dCuYUN&amp;start=1863" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <!-- Featured Video -->
+  <section class="video-section">
+    <iframe src="https://www.youtube.com/embed/je-zJwwfS3A?start=1863" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
 
   <!-- Highlights -->
   <section class="highlights">
@@ -257,8 +284,5 @@
     </div>
   </footer>
 
-  <script>
-    console.log("The Foundery homepage loaded.");
-  </script>
 </body>
 </html>
