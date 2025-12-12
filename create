@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Foundery Creative Collective — Join the Team</title>
+  <meta name="description" content="Join the Foundery Creative Collective — a team that tells meaningful stories through video, design, photos, and modern tools." />
+
+  <style>
+    :root{
+      --bg:#0b1118;
+      --panel:#0f1823;
+      --panel2:#0c141f;
+      --text:#e8eef6;
+      --muted:#b4c0d0;
+      --line:rgba(255,255,255,.09);
+
+      /* Foundery-ish accents */
+      --steel:#2b5b7b;     /* dark steel blue */
+      --ember:#d77a2b;     /* burnt orange */
+      --glow1:#4aa3ff;
+      --glow2:#ff9b4a;
+
+      --radius:18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 480px at 18% 10%, rgba(74,163,255,.20), transparent 65%),
+        radial-gradient(900px 520px at 82% 0%, rgba(255,155,74,.18), transparent 60%),
+        radial-gradient(700px 500px at 50% 100%, rgba(43,91,123,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.35;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1120px, 92vw); margin:0 auto; }
+
+    /* Top bar */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,17,24,.78), rgba(11,17,24,.35));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .logo{
+      width:36px; height:36px;
+      border-radius:12px;
+      background:
+        radial-gradient(10px 10px at 30% 30%, rgba(255,255,255,.9), transparent 60%),
+        linear-gradient(135deg, rgba(74,163,255,.92), rgba(255,155,74,.92));
+      box-shadow: 0 10px 25px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .navlinks{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlinks a{
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:10px;
+      transition: .18s ease;
+    }
+    .navlinks a:hover{ color:var(--text); background: rgba(255,255,255,.06); }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:650;
+      box-shadow: var(--shadow2);
+      transition: transform .12s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.20); }
+    .btn:active{ transform: translateY(0px); }
+
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(74,163,255,.95), rgba(255,155,74,.92));
+      border-color: rgba(255,255,255,.28);
+      color:#0a1017;
+      box-shadow: 0 14px 40px rgba(0,0,0,.40);
+    }
+    .btn-primary:hover{
+      background: linear-gradient(135deg, rgba(74,163,255,1), rgba(255,155,74,1));
+    }
+
+    /* Hero */
+    .hero{
+      padding:64px 0 30px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .heroGrid{ grid-template-columns: 1fr; }
+    }
+
+    .heroCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(260px 260px at 18% 20%, rgba(74,163,255,.25), transparent 60%),
+        radial-gradient(300px 260px at 90% 30%, rgba(255,155,74,.22), transparent 62%);
+      pointer-events:none;
+    }
+    .heroCard > *{ position:relative; }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: var(--muted);
+      font-size:13px;
+      letter-spacing:.3px;
+      margin-bottom:14px;
+      width:fit-content;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--glow1), var(--glow2));
+      box-shadow: 0 0 18px rgba(74,163,255,.35);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 4.2vw, 48px);
+      letter-spacing:-.6px;
+      line-height:1.05;
+    }
+    .sub{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
+    .miniStats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top: 20px;
+    }
+    @media (max-width: 520px){
+      .miniStats{ grid-template-columns: 1fr; }
+    }
+    .stat{
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .stat b{ display:block; font-size:14px; }
+    .stat span{ color:var(--muted); font-size:13px; }
+
+    /* Side panel */
+    .sideCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow2);
+    }
+    .sideTitle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 10px;
+    }
+    .badge{
+      font-size:12px;
+      color:#0a1017;
+      font-weight:700;
+      background: linear-gradient(135deg, rgba(74,163,255,.95), rgba(255,155,74,.92));
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+    }
+    .sideCard p{ color:var(--muted); margin: 8px 0 0; font-size:14px; }
+
+    .roles{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .role{
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.16);
+    }
+    .role b{ display:block; font-size:14px; }
+    .role span{ color:var(--muted); font-size:13px; }
+
+    /* Sections */
+    section{ padding: 34px 0; }
+    .sectionCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding:26px;
+      box-shadow: var(--shadow2);
+    }
+    .sectionHeader{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom: 14px;
+    }
+    h2{
+      margin:0;
+      font-size: clamp(22px, 3vw, 30px);
+      letter-spacing:-.4px;
+    }
+    .hint{
+      color:var(--muted);
+      font-size:14px;
+      max-width: 62ch;
+      margin: 8px 0 0;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px){
+      .grid3{ grid-template-columns: 1fr; }
+    }
+    .tile{
+      padding:16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(240px 140px at 30% 0%, rgba(74,163,255,.12), transparent 60%),
+        rgba(0,0,0,.14);
+      min-height: 120px;
+    }
+    .tile b{ display:block; font-size:15px; margin-bottom:6px; }
+    .tile p{ margin:0; color:var(--muted); font-size:14px; }
+    .pillRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .pill{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    /* Form */
+    .formWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top: 16px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .formWrap{ grid-template-columns: 1fr; }
+    }
+
+    form{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.16);
+      border-radius: 18px;
+      padding:16px;
+    }
+    label{
+      display:block;
+      font-size:13px;
+      color: var(--muted);
+      margin: 10px 0 6px;
+    }
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(15,24,35,.65);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(74,163,255,.55);
+      box-shadow: 0 0 0 4px rgba(74,163,255,.12);
+    }
+    textarea{ min-height: 100px; resize: vertical; }
+
+    .checkGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top: 6px;
+    }
+    @media (max-width: 520px){
+      .checkGrid{ grid-template-columns: 1fr; }
+    }
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .check input{ width:auto; margin-top:2px; }
+    .check span{
+      font-size:13px;
+      color: var(--muted);
+    }
+
+    .formActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .note{
+      color: var(--muted);
+      font-size:12px;
+      margin: 10px 0 0;
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor:pointer;
+      font-weight:650;
+      outline:none;
+    }
+    details p{ margin:10px 0 0; color:var(--muted); font-size:14px; }
+
+    footer{
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Smooth scrolling */
+    html{ scroll-behavior:smooth; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          The Foundery <span style="opacity:.7;">Creative Collective</span>
+        </div>
+      </div>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#what">What We Do</a>
+        <a href="#join">Join</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#join">Quick Signup</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="heroGrid">
+
+        <div class="heroCard">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Recruiting volunteers & creatives for 2026</div>
+          <h1>Help Tell The Foundery’s Story.</h1>
+          <p class="sub">
+            The Creative Collective is a team of people who use creativity and modern tools to tell meaningful stories —
+            real moments, real testimonies, and real hope.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn btn-primary" href="#join">I’m Interested</a>
+            <a class="btn" href="#what">Show Me What You Do</a>
+          </div>
+
+          <div class="miniStats" role="list" aria-label="Highlights">
+            <div class="stat" role="listitem">
+              <b>No experience required</b>
+              <span>Willingness beats perfection.</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>Flexible commitment</b>
+              <span>Even once a month helps.</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>Modern tools, real purpose</b>
+              <span>Photo • video • design • events.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sideCard" aria-label="Ways to serve">
+          <div class="sideTitle">
+            <h2 style="margin:0; font-size:20px;">Where you could fit</h2>
+            <span class="badge">Pick a lane</span>
+          </div>
+          <p>
+            You don’t have to do everything. Choose what fits your personality, schedule, and comfort level.
+          </p>
+
+          <div class="roles">
+            <div class="role"><b>Photo & Moments</b><span>Capture real church life (no “posed” pressure).</span></div>
+            <div class="role"><b>Video & Reels</b><span>Short clips, sermon moments, quick edits.</span></div>
+            <div class="role"><b>Canva & Design</b><span>Flyers, screens, posts, simple layouts.</span></div>
+            <div class="role"><b>Social Posting</b><span>Scheduling posts, captions, consistency.</span></div>
+            <div class="role"><b>Events & Outreach</b><span>Booths, signage, promo pieces, setup help.</span></div>
+            <div class="role"><b>Tech & Slides</b><span>Sunday screens, lyric slides, live support.</span></div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#join">Join the Team</a>
+            <a class="btn" href="#faq">Questions?</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section id="what">
+    <div class="container">
+      <div class="sectionCard">
+        <div class="sectionHeader">
+          <div>
+            <h2>What the Creative Collective does</h2>
+            <p class="hint">
+              We help people see what God is doing — by capturing and sharing moments that would otherwise disappear.
+              This isn’t about being “professional.” It’s about being faithful and consistent.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="tile">
+            <b>Storytelling that feels real</b>
+            <p>Testimonies, behind-the-scenes moments, worship energy, and community impact — shown with warmth and clarity.</p>
+            <div class="pillRow">
+              <span class="pill">Testimony</span><span class="pill">Worship</span><span class="pill">Community</span>
+            </div>
+          </div>
+          <div class="tile">
+            <b>Content that reaches people</b>
+            <p>Short-form videos, sermon clips, and posts that make it easy for someone to take the next step.</p>
+            <div class="pillRow">
+              <span class="pill">Reels</span><span class="pill">Clips</span><span class="pill">Invites</span>
+            </div>
+          </div>
+          <div class="tile">
+            <b>Design that supports ministry</b>
+            <p>Flyers, screens, series graphics, event promos, and outreach pieces — built in a unified style.</p>
+            <div class="pillRow">
+              <span class="pill">Canva</span><span class="pill">Slides</span><span class="pill">Brand</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY YOU -->
+  <section id="you">
+    <div class="container">
+      <div class="sectionCard">
+        <div class="sectionHeader">
+          <div>
+            <h2>This is for you if…</h2>
+            <p class="hint">We’re recruiting people who want to serve behind the scenes and help the church communicate clearly.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="tile">
+            <b>You like creating (or want to learn)</b>
+            <p>If you’ve ever thought, “I wish I could help with that,” you’re exactly who we want.</p>
+          </div>
+          <div class="tile">
+            <b>You prefer low-pressure serving</b>
+            <p>Not everyone wants a microphone. Some people serve best with a camera, a laptop, or a plan.</p>
+          </div>
+          <div class="tile">
+            <b>You want your time to matter</b>
+            <p>Even small, consistent creative work can help someone feel welcomed, seen, and invited.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN / FORM -->
+  <section id="join">
+    <div class="container">
+      <div class="sectionCard">
+        <div class="sectionHeader">
+          <div>
+            <h2>Quick Signup</h2>
+            <p class="hint">
+              Fill this out and hit <b>Send</b> — it will open your email app with a pre-filled message to Sidney.
+              (No account required. No pressure.)
+            </p>
+          </div>
+        </div>
+
+        <div class="formWrap">
+          <form id="interestForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="Your name" />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
+
+            <label>What interests you? (pick any)</label>
+            <div class="checkGrid">
+              <label class="check"><input type="checkbox" name="interests" value="Photo & Moments"><span>Photo & Moments</span></label>
+              <label class="check"><input type="checkbox" name="interests" value="Video & Reels"><span>Video & Reels</span></label>
+              <label class="check"><input type="checkbox" name="interests" value="Canva & Design"><span>Canva & Design</span></label>
+              <label class="check"><input type="checkbox" name="interests" value="Social Posting"><span>Social Posting</span></label>
+              <label class="check"><input type="checkbox" name="interests" value="Events & Outreach"><span>Events & Outreach</span></label>
+              <label class="check"><input type="checkbox" name="interests" value="Tech & Slides"><span>Tech & Slides</span></label>
+            </div>
+
+            <label for="availability">Availability</label>
+            <select id="availability" name="availability" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Once a month</option>
+              <option>2x per month</option>
+              <option>Weekly (small tasks)</option>
+              <option>Seasonal / event-based</option>
+              <option>Not sure yet</option>
+            </select>
+
+            <label for="notes">Anything you want to learn or add? (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Example: I want to learn Canva… or I can help at events…"></textarea>
+
+            <div class="formActions">
+              <button class="btn btn-primary" type="submit">Send to Sidney</button>
+              <button class="btn" type="button" id="copyBtn">Copy Message</button>
+            </div>
+
+            <p class="note" id="formNote">
+              Tip: On phones, this opens Mail immediately. On computers, it opens your default mail app (or webmail if configured).
+            </p>
+          </form>
+
+          <div>
+            <div class="tile" style="min-height:auto; margin-bottom:14px;">
+              <b>What happens next?</b>
+              <p style="margin-top:6px;">
+                Sidney will reply with a simple next step: a quick intro + choosing a lane + your first small win.
+              </p>
+              <div class="pillRow">
+                <span class="pill">No long meetings</span>
+                <span class="pill">Start simple</span>
+                <span class="pill">Real support</span>
+              </div>
+            </div>
+
+            <div class="tile" style="min-height:auto;">
+              <b>Comfort matters</b>
+              <p style="margin-top:6px;">
+                Don’t want to be on camera? Totally fine. Many roles are behind the scenes.
+              </p>
+              <p style="margin-top:10px; color:var(--muted); font-size:13px;">
+                If you ever want a “no-email-app” form that silently sends submissions straight to Sidney’s inbox,
+                use a free form endpoint (Formspree / Google Apps Script). I can wire that up in minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sectionCard">
+        <div class="sectionHeader">
+          <div>
+            <h2>FAQ</h2>
+            <p class="hint">Quick answers for the most common questions.</p>
+          </div>
+        </div>
+
+        <details>
+          <summary>Do I need experience?</summary>
+          <p>No. If you’re willing to learn and help, you’re qualified.</p>
+        </details>
+
+        <details>
+          <summary>Do I need fancy gear?</summary>
+          <p>No. Phones are enough for many tasks. We’ll build from there.</p>
+        </details>
+
+        <details>
+          <summary>How much time does this take?</summary>
+          <p>Flexible. Even serving once a month helps. We’ll match tasks to your schedule.</p>
+        </details>
+
+        <details>
+          <summary>Can I help without being on camera?</summary>
+          <p>Absolutely. Many roles are behind-the-scenes (design, posting, slides, planning, event support).</p>
+        </details>
+
+        <details>
+          <summary>What if I’m not sure where I fit?</summary>
+          <p>That’s normal. We’ll do a quick intro and help you choose a lane based on what you enjoy.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div style="display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; align-items:center;">
+      <div>© <span id="year"></span> The Foundery Creative Collective</div>
+      <div style="opacity:.9;">Questions? Email Sidney: <b>Sidney.mozingo@gmail.com</b></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Update footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const TO_EMAIL = "Sidney.mozingo@gmail.com";
+  const form = document.getElementById("interestForm");
+  const copyBtn = document.getElementById("copyBtn");
+  const formNote = document.getElementById("formNote");
+
+  function getCheckedInterests() {
+    const checks = [...form.querySelectorAll('input[name="interests"]:checked')];
+    return checks.map(c => c.value);
+  }
+
+  function buildEmailSubject(name) {
+    return `Creative Collective Interest — ${name || "New Signup"}`;
+  }
+
+  function buildEmailBody(data) {
+    const interests = data.interests.length ? data.interests.join(", ") : "Not selected";
+    return [
+      "Hi Sidney,",
+      "",
+      "I’m interested in joining the Foundery Creative Collective.",
+      "",
+      "— Signup Details —",
+      `Name: ${data.name}`,
+      `Email: ${data.email}`,
+      `Phone: ${data.phone || "N/A"}`,
+      `Interests: ${interests}`,
+      `Availability: ${data.availability}`,
+      `Notes: ${data.notes || "N/A"}`,
+      "",
+      "Thanks!",
+      data.name
+    ].join("\n");
+  }
+
+  function buildMailtoLink(subject, body) {
+    // mailto requires URL encoding
+    const enc = (s) => encodeURIComponent(s);
+    return `mailto:${TO_EMAIL}?subject=${enc(subject)}&body=${enc(body)}`;
+  }
+
+  function gatherFormData() {
+    const data = {
+      name: (document.getElementById("name").value || "").trim(),
+      email: (document.getElementById("email").value || "").trim(),
+      phone: (document.getElementById("phone").value || "").trim(),
+      availability: document.getElementById("availability").value,
+      notes: (document.getElementById("notes").value || "").trim(),
+      interests: getCheckedInterests()
+    };
+    return data;
+  }
+
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      // Fallback: older browsers
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    }
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = gatherFormData();
+    if(!data.name || !data.email || !data.availability){
+      formNote.textContent = "Please fill out Name, Email, and Availability.";
+      return;
+    }
+
+    const subject = buildEmailSubject(data.name);
+    const body = buildEmailBody(data);
+
+    // Open email client with prefilled message
+    window.location.href = buildMailtoLink(subject, body);
+
+    formNote.textContent = "Opening your email app now… If nothing happens, click “Copy Message” and email Sidney manually.";
+  });
+
+  copyBtn.addEventListener("click", async () => {
+    const data = gatherFormData();
+    const subject = buildEmailSubject(data.name);
+    const body = buildEmailBody(data);
+    const msg = `To: ${TO_EMAIL}\nSubject: ${subject}\n\n${body}`;
+
+    const ok = await copyToClipboard(msg);
+    formNote.textContent = ok
+      ? "Copied! Paste into a new email to Sidney.mozingo@gmail.com."
+      : "Couldn’t auto-copy on this device. Select the fields and email Sidney manually.";
+  });
+</script>
+
+</body>
+</html>
